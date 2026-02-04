@@ -121,6 +121,19 @@
         <p class="text-slate-500 text-xs">Powered by AI ✨</p>
       </div>
     </div>
+    <!-- Floating Download CV Button -->
+    <a 
+      href="/Karolina_Mroz_CV.pdf" 
+      download
+      class="fixed bottom-6 right-6 flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-sky-500 to-sky-600 text-white text-sm font-medium rounded-full hover:from-sky-400 hover:to-sky-500 hover:scale-105 hover:shadow-xl hover:shadow-sky-500/30 transition-all duration-300 shadow-lg shadow-sky-500/20 z-50"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download CV
+    </a>
   </main>
 </template>
 
