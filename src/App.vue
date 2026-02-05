@@ -113,26 +113,160 @@
         </form>
       </div>
 
-    <!-- Footer with fade-in -->
-    <div 
-      class="mt-6 text-center transition-all duration-700 delay-500"
-      :class="showInput ? 'opacity-100' : 'opacity-0'"
-    >
-      <div class="flex items-center justify-center gap-4 mb-2">
-        <a 
-          href="https://github.com/karolinamroz" 
-          target="_blank"
-          class="text-slate-400 hover:text-sky-400 hover:scale-110 transition-all duration-300"
-          title="GitHub"
+      <!-- Action Buttons -->
+      <div 
+        class="mt-6 flex justify-center gap-3 transition-all duration-700 delay-300"
+        :class="showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+      >
+        <button
+          @click="showContactModal = true"
+          class="flex items-center gap-2 px-5 py-2.5 bg-slate-800/60 text-slate-300 text-sm rounded-full border border-slate-700/50 hover:bg-slate-700/60 hover:text-white hover:border-sky-500/30 hover:scale-105 transition-all duration-300"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
-        </a>
+          Email Me
+        </button>
+        <button
+          @click="showCvModal = true"
+          class="flex items-center gap-2 px-5 py-2.5 bg-slate-800/60 text-slate-300 text-sm rounded-full border border-slate-700/50 hover:bg-slate-700/60 hover:text-white hover:border-sky-500/30 hover:scale-105 transition-all duration-300"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Send Me CV
+        </button>
       </div>
-      <p class="text-slate-500 text-xs">Powered by AI ✨</p>
+
+      <!-- Footer with fade-in -->
+      <div 
+        class="mt-6 text-center transition-all duration-700 delay-500"
+        :class="showInput ? 'opacity-100' : 'opacity-0'"
+      >
+        <div class="flex items-center justify-center gap-4 mb-2">
+          <a 
+            href="https://github.com/karolinamroz" 
+            target="_blank"
+            class="text-slate-400 hover:text-sky-400 hover:scale-110 transition-all duration-300"
+            title="GitHub"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="text-slate-500 text-xs">Powered by AI ✨</p>
+      </div>
     </div>
-    </div>
+
+    <!-- Contact Modal -->
+    <Transition name="modal">
+      <div v-if="showContactModal" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="showContactModal = false"></div>
+        <div class="relative bg-slate-800 border border-slate-700/50 rounded-3xl p-6 w-full max-w-md shadow-2xl">
+          <button 
+            @click="showContactModal = false"
+            class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <h2 class="text-xl font-semibold text-white mb-4">Get in Touch</h2>
+          
+          <form @submit.prevent="sendContactEmail" class="space-y-4">
+            <div>
+              <input
+                v-model="contactForm.name"
+                type="text"
+                placeholder="Your name"
+                required
+                class="w-full bg-slate-700/60 text-white placeholder:text-slate-400 px-4 py-3 rounded-xl border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all text-sm"
+              />
+            </div>
+            <div>
+              <input
+                v-model="contactForm.email"
+                type="email"
+                placeholder="Your email"
+                required
+                class="w-full bg-slate-700/60 text-white placeholder:text-slate-400 px-4 py-3 rounded-xl border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all text-sm"
+              />
+            </div>
+            <div>
+              <textarea
+                v-model="contactForm.message"
+                placeholder="Your message"
+                required
+                rows="4"
+                class="w-full bg-slate-700/60 text-white placeholder:text-slate-400 px-4 py-3 rounded-xl border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all text-sm resize-none"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              :disabled="contactSending"
+              class="w-full py-3 bg-gradient-to-r from-sky-500 to-sky-600 text-white font-medium rounded-xl hover:from-sky-400 hover:to-sky-500 disabled:opacity-50 transition-all duration-300 shadow-lg shadow-sky-500/20"
+            >
+              {{ contactSending ? 'Sending...' : 'Send Message' }}
+            </button>
+          </form>
+          
+          <p v-if="contactSuccess" class="mt-4 text-green-400 text-sm text-center">Message sent! I'll get back to you soon.</p>
+          <p v-if="contactError" class="mt-4 text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- CV Request Modal -->
+    <Transition name="modal">
+      <div v-if="showCvModal" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="showCvModal = false"></div>
+        <div class="relative bg-slate-800 border border-slate-700/50 rounded-3xl p-6 w-full max-w-md shadow-2xl">
+          <button 
+            @click="showCvModal = false"
+            class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <h2 class="text-xl font-semibold text-white mb-2">Get My CV</h2>
+          <p class="text-slate-400 text-sm mb-4">Enter your email and I'll send you my CV directly.</p>
+          
+          <form @submit.prevent="sendCvEmail" class="space-y-4">
+            <div>
+              <input
+                v-model="cvForm.email"
+                type="email"
+                placeholder="Your email"
+                required
+                class="w-full bg-slate-700/60 text-white placeholder:text-slate-400 px-4 py-3 rounded-xl border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500/50 transition-all text-sm"
+              />
+            </div>
+            <button
+              type="submit"
+              :disabled="cvSending"
+              class="w-full py-3 bg-gradient-to-r from-sky-500 to-sky-600 text-white font-medium rounded-xl hover:from-sky-400 hover:to-sky-500 disabled:opacity-50 transition-all duration-300 shadow-lg shadow-sky-500/20"
+            >
+              {{ cvSending ? 'Sending...' : 'Send CV to My Email' }}
+            </button>
+          </form>
+          
+          <p v-if="cvSuccess" class="mt-4 text-green-400 text-sm text-center">CV sent! Check your inbox.</p>
+          <p v-if="cvError" class="mt-4 text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
+        </div>
+      </div>
+    </Transition>
+
     <!-- Floating Download CV Button -->
     <a 
       href="/Karolina_Mroz_CV.pdf" 
@@ -157,6 +291,22 @@ const input = ref('')
 const messages = ref([])
 const isLoading = ref(false)
 const messagesContainer = ref(null)
+
+// Modal states
+const showContactModal = ref(false)
+const showCvModal = ref(false)
+
+// Contact form
+const contactForm = ref({ name: '', email: '', message: '' })
+const contactSending = ref(false)
+const contactSuccess = ref(false)
+const contactError = ref(false)
+
+// CV form
+const cvForm = ref({ email: '' })
+const cvSending = ref(false)
+const cvSuccess = ref(false)
+const cvError = ref(false)
 
 // Staggered entrance animations
 const showHeader = ref(false)
@@ -320,6 +470,66 @@ function scrollToBottom() {
     messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight
   }
 }
+
+async function sendContactEmail() {
+  contactSending.value = true
+  contactSuccess.value = false
+  contactError.value = false
+  
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'contact',
+        name: contactForm.value.name,
+        email: contactForm.value.email,
+        message: contactForm.value.message
+      })
+    })
+    
+    if (response.ok) {
+      contactSuccess.value = true
+      contactForm.value = { name: '', email: '', message: '' }
+    } else {
+      contactError.value = true
+    }
+  } catch (error) {
+    console.error('Error:', error)
+    contactError.value = true
+  }
+  
+  contactSending.value = false
+}
+
+async function sendCvEmail() {
+  cvSending.value = true
+  cvSuccess.value = false
+  cvError.value = false
+  
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'cv-request',
+        email: cvForm.value.email
+      })
+    })
+    
+    if (response.ok) {
+      cvSuccess.value = true
+      cvForm.value = { email: '' }
+    } else {
+      cvError.value = true
+    }
+  } catch (error) {
+    console.error('Error:', error)
+    cvError.value = true
+  }
+  
+  cvSending.value = false
+}
 </script>
 
 <style>
@@ -342,5 +552,21 @@ function scrollToBottom() {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Modal animations */
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-from .relative,
+.modal-leave-to .relative {
+  transform: scale(0.95);
 }
 </style>
