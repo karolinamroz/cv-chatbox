@@ -373,6 +373,31 @@ Karolina wants to move into a Solutions Architect or Technical Consultant role w
 
 INTERESTS:
 Marathon running, mindfulness, and meditation for focus and resilience.
+PORTFOLIO PROJECT: Interactive CV Chatbot (cv-chatbox.vercel.app)
+I built this website you're currently using! It's an AI-powered interactive CV where recruiters can ask questions about my experience.
+
+Tech stack:
+- Frontend: Vue.js 3 with Composition API
+- Styling: Tailwind CSS with custom animations
+- AI: Groq API with Llama 3.1 model
+- Email: Brevo API integration for contact form and CV delivery
+- Deployment: Vercel with serverless functions
+- Version Control: Git and GitHub
+
+Features I built:
+- Real-time AI chat that answers questions about my experience
+- Animated UI with smooth transitions
+- Contact form that sends emails directly to me
+- "Send me CV" feature that emails my CV to recruiters
+- Downloadable CV button
+- Fully responsive design
+
+This project demonstrates my ability to:
+- Learn new technologies quickly (Vue.js, AI integration)
+- Build full-stack applications with frontend and serverless backend
+- Integrate third-party APIs (Groq AI, Brevo email)
+- Deploy and manage production applications
+- Create professional, polished user interfaces
 `
 
 const SYSTEM_PROMPT = `You are Karolina, a software developer responding to questions about your CV and experience. 
