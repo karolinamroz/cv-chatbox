@@ -1,1 +1,37 @@
 @import 'tailwindcss';
+/* Custom Scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #475569 transparent;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+  
+  /* Hide scrollbar until hover for cleaner look */
+  .sidebar::-webkit-scrollbar-thumb,
+  .chat-messages::-webkit-scrollbar-thumb,
+  .vue-flow::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  
+  .sidebar:hover::-webkit-scrollbar-thumb,
+  .chat-messages:hover::-webkit-scrollbar-thumb,
+  .vue-flow:hover::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
