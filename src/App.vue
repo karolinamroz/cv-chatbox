@@ -191,10 +191,11 @@
               : '-translate-y-8 opacity-0 scale-95'
           ]"
         >
-          <nav class="flex flex-col gap-2">
+        <nav class="flex flex-col gap-2">
+          <template v-for="(link, index) in navLinks" :key="link.path || link.label">
+            <!-- Regular link -->
             <router-link
-              v-for="(link, index) in navLinks"
-              :key="link.path"
+              v-if="link.path"
               :to="link.path"
               @click="isMobileMenuOpen = false"
               :class="[
@@ -215,7 +216,62 @@
                 {{ link.label }}
               </span>
             </router-link>
-          </nav>
+            
+            <!-- Dropdown for Projects -->
+            <div v-else>
+              <button
+                @click="mobileProjectsOpen = !mobileProjectsOpen"
+                :class="[
+                  'relative flex items-center justify-between w-full px-4 py-3 rounded-2xl transition-all duration-300',
+                  $route.path.startsWith('/workflow')
+                    ? 'bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-500/30 text-white'
+                    : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+                ]"
+              >
+                <span class="flex items-center gap-3">
+                  <span 
+                    v-if="$route.path.startsWith('/workflow')" 
+                    class="w-2 h-2 bg-sky-400 rounded-full shadow-lg shadow-sky-400/50" 
+                  />
+                  <span :class="['font-medium', !$route.path.startsWith('/workflow') && 'ml-5']">
+                    {{ link.label }}
+                  </span>
+                </span>
+                <svg 
+                  class="w-4 h-4 transition-transform duration-200" 
+                  :class="{ 'rotate-180': mobileProjectsOpen }"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <!-- Dropdown items -->
+              <div 
+                v-show="mobileProjectsOpen"
+                class="mt-2 ml-4 flex flex-col gap-1"
+              >
+                <router-link
+                  v-for="child in link.children"
+                  :key="child.path"
+                  :to="child.path"
+                  @click="isMobileMenuOpen = false"
+                  :class="[
+                    'flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300',
+                    $route.path === child.path
+                      ? 'bg-slate-700/50 text-white'
+                      : 'text-slate-400 hover:bg-slate-700/30 hover:text-white'
+                  ]"
+                >
+                  <span class="w-1.5 h-1.5 bg-sky-400/50 rounded-full"></span>
+                  {{ child.label }}
+                </router-link>
+              </div>
+            </div>
+          </template>
+        </nav>
   
           <!-- Mobile CTA -->
           <div class="mt-6 pt-6 border-t border-slate-700/50">
@@ -269,6 +325,7 @@
   const isMobileMenuOpen = ref(false)
   const mounted = ref(false)
   const projectsOpen = ref(false)
+  const mobileProjectsOpen = ref(false)
   
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 20

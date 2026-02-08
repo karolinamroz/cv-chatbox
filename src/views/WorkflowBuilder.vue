@@ -1,5 +1,24 @@
 <template>
-      <div class="workflow-page">
+  <div>
+    <!-- Mobile Warning -->
+    <div class="mobile-warning">
+      <div class="mobile-warning__content">
+        <div class="mobile-warning__icon">🖥️</div>
+        <h2 class="mobile-warning__title">Desktop Required</h2>
+        <p class="mobile-warning__text">
+          The AI Workflow Builder uses drag-and-drop functionality that works best on larger screens.
+        </p>
+        <p class="mobile-warning__text">
+          Please visit this page on a desktop or laptop computer for the full experience.
+        </p>
+        <router-link to="/" class="mobile-warning__btn">
+          ← Back to Home
+        </router-link>
+      </div>
+    </div>
+
+    <!-- Desktop Content -->
+    <div class="workflow-page">
         <div class="sidebar-wrapper" :style="{ width: sidebarWidth + 'px' }">
           <NodeSidebar 
             :nodes="nodes"
@@ -55,7 +74,8 @@
         @save="saveNodeChanges"
       />
     </div>
-  </template>
+  </div>
+</template>
   
   <script setup>
   import { ref, markRaw } from 'vue'
@@ -338,5 +358,68 @@ const onDrop = (event) => {
   background: #475569;
   border-radius: 3px;
   transition: background 0.2s;
+}
+
+/* Mobile Warning */
+.mobile-warning {
+  display: none;
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-warning__content {
+  text-align: center;
+  max-width: 320px;
+}
+
+.mobile-warning__icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-warning__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 1rem;
+}
+
+.mobile-warning__text {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.mobile-warning__btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.mobile-warning__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* Show mobile warning, hide desktop on small screens */
+@media (max-width: 768px) {
+  .mobile-warning {
+    display: flex;
+  }
+  
+  .workflow-page {
+    display: none;
+  }
 }
   </style>
