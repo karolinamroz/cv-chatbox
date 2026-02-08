@@ -32,20 +32,31 @@
       />
       
       <div class="sidebar-section">
-        <h4 class="text-sm font-medium text-slate-300 mb-3">Quick Actions</h4>
-        <button @click="$emit('clear')" class="quick-action-btn danger">
-          <span>🗑️</span>
-          Clear Canvas
-        </button>
-        <button @click="$emit('save')" class="quick-action-btn">
-          <span>💾</span>
-          Save Workflow
-        </button>
-        <button @click="$emit('load')" class="quick-action-btn">
-          <span>📂</span>
-          Load Workflow
-        </button>
-      </div>
+      <h4 class="text-sm font-medium text-slate-300 mb-3">Quick Actions</h4>
+      <button @click="$emit('clear')" class="quick-action-btn danger">
+        <span>🗑️</span>
+        Clear Canvas
+      </button>
+      <button @click="$emit('save')" class="quick-action-btn">
+        <span>💾</span>
+        Save to Browser
+      </button>
+      <button @click="$emit('load')" class="quick-action-btn">
+        <span>📂</span>
+        Load from Browser
+      </button>
+      
+      <div class="section-divider"></div>
+
+      <button @click="$emit('export-png')" class="quick-action-btn export">
+        <span>🖼️</span>
+        Export as PNG
+      </button>
+      <button @click="$emit('export-svg')" class="quick-action-btn export">
+        <span>📐</span>
+        Export as SVG
+      </button>
+    </div>
     </div>
   </template>
   
@@ -63,7 +74,7 @@
     }
   })
   
-  defineEmits(['clear', 'save', 'load', 'add-suggested-node'])
+  const emit = defineEmits(['clear', 'save', 'load', 'add-suggested-node', 'export-png', 'export-svg'])
   
   const availableNodes = [
     {
@@ -208,4 +219,28 @@
     border-color: #f87171;
     color: #f87171;
   }
+
+  .section-divider {
+  height: 1px;
+  background: #30363d;
+  margin: 12px 0;
+}
+
+.quick-action-btn.export:hover {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+.quick-action-btn.import {
+  cursor: pointer;
+}
+
+.quick-action-btn.import:hover {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+
+.hidden-input {
+  display: none;
+}
   </style>
