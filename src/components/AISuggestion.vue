@@ -168,9 +168,10 @@ INSTRUCTIONS:
         { role: 'system', content: systemPrompt },
         ...messages.value.slice(-10).map(m => ({ role: m.role, content: m.content }))
       ],
-      model: 'llama-3.1-8b-instant',
+      model: 'qwen/qwen3.8-27b',
       max_tokens: 300,
-      temperature: 0.7
+      temperature: 0.7,
+      reasoning_effort: 'none'
     })
     
     const text = response.choices[0]?.message?.content || 'Sorry, I couldn\'t generate a response.'
